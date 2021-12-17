@@ -1,4 +1,4 @@
-package com.example.shiftkeyapp.repository.retrofit.data
+package com.example.shiftkeyapp.repository.retrofit.data.response
 
 data class LocalizedSpecialty(
     val abbreviation: String,

@@ -2,7 +2,6 @@ package com.example.shiftkeyapp.di
 
 import com.example.shiftkeyapp.repository.retrofit.BaseUrls.BASE_API_URL
 import com.example.shiftkeyapp.repository.retrofit.ShiftsApi
-import com.example.shiftkeyapp.repository.retrofit.data.ShiftsResponse
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

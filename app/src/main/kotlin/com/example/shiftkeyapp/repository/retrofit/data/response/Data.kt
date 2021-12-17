@@ -1,4 +1,4 @@
-package com.example.shiftkeyapp.repository.retrofit.data
+package com.example.shiftkeyapp.repository.retrofit.data.response
 
 data class Data(
     val date: String,
