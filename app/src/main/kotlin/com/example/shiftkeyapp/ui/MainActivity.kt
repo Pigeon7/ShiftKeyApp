@@ -1,4 +1,4 @@
-package com.example.shiftkeyapp
+package com.example.shiftkeyapp.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
