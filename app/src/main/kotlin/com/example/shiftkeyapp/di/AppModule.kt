@@ -1,7 +1,9 @@
 package com.example.shiftkeyapp.di
 
-import com.example.shiftkeyapp.repository.retrofit.BaseUrls.BASE_API_URL
-import com.example.shiftkeyapp.repository.retrofit.ShiftsApi
+import com.example.shiftkeyapp.repository.ShiftsRepo
+import com.example.shiftkeyapp.repository.ShiftsRepoImpl
+import com.example.shiftkeyapp.repository.api.BaseUrls.BASE_API_URL
+import com.example.shiftkeyapp.repository.api.ShiftsApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +24,12 @@ object AppModule {
             .baseUrl(BASE_API_URL)
             .build()
             .create(ShiftsApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideShiftsRepository(shiftsApi: ShiftsApi): ShiftsRepo {
+        return ShiftsRepoImpl(shiftsApi = shiftsApi)
     }
 
 }

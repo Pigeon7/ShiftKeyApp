@@ -1,4 +1,4 @@
-package com.example.shiftkeyapp.repository.retrofit.data.response
+package com.example.shiftkeyapp.repository.api.data.response
 
 data class Specialty(
     val abbreviation: String,

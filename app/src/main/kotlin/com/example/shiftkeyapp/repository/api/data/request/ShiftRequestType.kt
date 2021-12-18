@@ -1,4 +1,4 @@
-package com.example.shiftkeyapp.repository.retrofit.data.request
+package com.example.shiftkeyapp.repository.api.data.request
 
 enum class ShiftRequestType(apiArgName: String) {
     WEEK("week"),
