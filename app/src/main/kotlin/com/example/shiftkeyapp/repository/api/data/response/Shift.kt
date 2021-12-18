@@ -1,6 +1,7 @@
 package com.example.shiftkeyapp.repository.api.data.response
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 data class Shift(
     @SerializedName("covid")
@@ -29,4 +30,4 @@ data class Shift(
     val timezone: String,
     @SerializedName("within_distance")
     val withinDistance: Int
-)
+) : Serializable
