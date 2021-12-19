@@ -1,10 +1,12 @@
 package com.example.shiftkeyapp.ui.shiftlist
 
+import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.shiftkeyapp.common.Constants.SP_KEY_SHIFT_DETAIL
 import com.example.shiftkeyapp.repository.ShiftsRepo
-import com.example.shiftkeyapp.repository.api.data.response.DailyShifts
 import com.example.shiftkeyapp.repository.api.data.response.Shift
+import com.google.gson.Gson
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,7 +15,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ShiftListViewModel @Inject constructor(
-    private val shiftsRepo: ShiftsRepo
+    private val shiftsRepo: ShiftsRepo,
+    private val sharedPreferences: SharedPreferences,
+    private val gson: Gson
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<ShiftsUiState>(ShiftsUiState.Loading)
@@ -29,6 +33,12 @@ class ShiftListViewModel @Inject constructor(
                 _uiState.value = ShiftsUiState.Error(ex.message.toString())
             }
         }
+    }
+
+    fun cacheShiftOnClick(shift: Shift){
+        val editor = sharedPreferences.edit()
+        editor.putString(SP_KEY_SHIFT_DETAIL,  gson.toJson(shift))
+        editor.apply()
     }
 
     sealed class ShiftsUiState {
